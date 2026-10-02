@@ -51,12 +51,12 @@
       ]}
     },
     {
-      id:5,name:'Activa la red',icon:'🤝',desc:'Conecta al COPPAS con actores e instituciones para responder de manera articulada.',prep:20,xp:250,spawn:{x:2520,y:1720},
+      id:5,name:'Activa la red',icon:'🤝',desc:'Conecta al COPPASS con actores e instituciones para responder de manera articulada.',prep:20,xp:250,spawn:{x:2520,y:1720},
       objectives:[{id:'network',x:2955,y:1585,icon:'🤝',title:'Centro de articulación',kind:'network',text:'Activa la red de apoyo conectando capacidades de la comunidad con otros actores.',teach:'La articulación evita acciones aisladas y permite coordinar esfuerzos y capacidades existentes.'}],
       checkpoint:{title:'Reto final: comunidad coordinada',icon:'🤝',intro:'Ahora debes integrar todo lo aprendido: conocer, preparar, organizar y articular.',questions:[
         {q:'¿Qué significa articularse con otros actores e instituciones?',o:['Trabajar sin informar a nadie','Coordinar capacidades y acciones','Entregar toda la responsabilidad a otros','Evitar la participación comunitaria'],a:1},
         {q:'¿Qué secuencia refleja mejor una preparación comunitaria?',o:['Improvisar → actuar → conocer','Conocer → organizar → planear → coordinar → responder','Responder → olvidar → planear','Esperar → actuar solo'],a:1},
-        {q:'¿Qué papel puede cumplir el COPPAS ante una emergencia?',o:['Quedarse al margen','Promover formación, organización, planeación, articulación y asistencia','Actuar sin comunidad','Reemplazar a todos los organismos'],a:1}
+        {q:'¿Qué papel puede cumplir el COPPASS ante una emergencia?',o:['Quedarse al margen','Promover formación, organización, planeación, articulación y asistencia','Actuar sin comunidad','Reemplazar a todos los organismos'],a:1}
       ]}
     }
   ];
@@ -66,14 +66,14 @@
     {id:'jorge',x:1840,y:720,avatar:'👨‍🏫',role:'Docente',name:'Jorge',lines:['La escuela puede aportar espacio y organización. Lo importante es saber qué capacidad existe y cómo coordinarla.']},
     {id:'ana',x:2190,y:1545,avatar:'🧑‍⚕️',role:'Salud',name:'Ana',lines:['El centro de salud es un recurso del territorio. Reconocerlo ayuda a pensar una respuesta que no empiece desde cero.']},
     {id:'lucia',x:2310,y:850,avatar:'👵',role:'Familia',name:'Lucía',lines:['En una emergencia debemos saber cómo comunicarnos, dónde encontrarnos y quién necesita más apoyo.']},
-    {id:'carlos',x:3220,y:1585,avatar:'🧑‍🤝‍🧑',role:'COPPAS',name:'Carlos',lines:['Cuando los grupos trabajan coordinadamente, la comunidad aprovecha mejor sus capacidades y evita acciones aisladas.']}
+    {id:'carlos',x:3220,y:1585,avatar:'🧑‍🤝‍🧑',role:'COPPASS',name:'Carlos',lines:['Cuando los grupos trabajan coordinadamente, la comunidad aprovecha mejor sus capacidades y evita acciones aisladas.']}
   ];
 
   const buildings = [
     {x:1320,y:360,w:430,h:310,name:'Escuela comunitaria',icon:'🏫',kind:'school'},
     {x:2240,y:1150,w:420,h:300,name:'Centro de salud',icon:'🏥',kind:'health'},
     {x:2050,y:520,w:360,h:260,name:'Casa familiar',icon:'🏠',kind:'home'},
-    {x:2740,y:1230,w:430,h:300,name:'Centro COPPAS',icon:'⛪',kind:'coppas'},
+    {x:2740,y:1230,w:430,h:300,name:'Centro COPPASS',icon:'⛪',kind:'coppas'},
     {x:1250,y:1660,w:400,h:210,name:'Punto de encuentro',icon:'📍',kind:'meeting'},
     {x:440,y:1260,w:340,h:220,name:'Centro comunitario',icon:'🏛️',kind:'community'}
   ];
@@ -202,7 +202,7 @@
     els.challengeTitle.textContent='🤝 Activa la red';
     els.challengeBadge.textContent='🔗';
     els.challengeIntro.textContent='Conecta a los actores que pueden colaborar frente a una emergencia. Construye una red de apoyo, no una cadena de dependencias.';
-    const nodes=[['⛪','COPPAS'],['🏥','Salud'],['🏫','Escuela'],['👥','Comunidad'],['🚑','Socorro']];
+    const nodes=[['⛪','COPPASS'],['🏥','Salud'],['🏫','Escuela'],['👥','Comunidad'],['🚑','Socorro']];
     els.challengeBody.innerHTML=`<div id="networkBoard" class="network-board"><svg class="network-svg" aria-hidden="true"><defs><filter id="edgeShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity=".16"/></filter></defs></svg></div><div id="networkStatus" class="challenge-feedback"></div>`;
     const board=document.getElementById('networkBoard');
     const svg=board.querySelector('.network-svg');
@@ -259,7 +259,7 @@
       path.classList.add('edge-line');path.setAttribute('d',d);path.setAttribute('fill','none');path.setAttribute('stroke','#c93a43');path.setAttribute('stroke-width','3.5');path.setAttribute('stroke-linecap','round');path.setAttribute('stroke-linejoin','round');path.setAttribute('opacity','.72');path.setAttribute('filter','url(#edgeShadow)');svg.appendChild(path);
     });
   }
-  function checkNetwork(o,edges){const connected=new Set([0]);let changed=true;while(changed){changed=false;for(const [a,b] of edges){if(connected.has(a)&&!connected.has(b)){connected.add(b);changed=true}if(connected.has(b)&&!connected.has(a)){connected.add(a);changed=true}}}if(connected.size>=4){els.challengeFeedback.className='feedback ok';els.challengeFeedback.textContent='✅ Red activada: el COPPAS quedó conectado con varias capacidades del territorio.';els.challengeNext.textContent='CONTINUAR';els.challengeNext.onclick=()=>{els.challengeModal.classList.remove('show');completeObjective(o)};}else{lives=Math.max(0,lives-1);updateHud();els.challengeFeedback.className='feedback bad';els.challengeFeedback.textContent='La red todavía está fragmentada. Conecta más actores para que las capacidades puedan coordinarse.';}}
+  function checkNetwork(o,edges){const connected=new Set([0]);let changed=true;while(changed){changed=false;for(const [a,b] of edges){if(connected.has(a)&&!connected.has(b)){connected.add(b);changed=true}if(connected.has(b)&&!connected.has(a)){connected.add(a);changed=true}}}if(connected.size>=4){els.challengeFeedback.className='feedback ok';els.challengeFeedback.textContent='✅ Red activada: el COPPASS quedó conectado con varias capacidades del territorio.';els.challengeNext.textContent='CONTINUAR';els.challengeNext.onclick=()=>{els.challengeModal.classList.remove('show');completeObjective(o)};}else{lives=Math.max(0,lives-1);updateHud();els.challengeFeedback.className='feedback bad';els.challengeFeedback.textContent='La red todavía está fragmentada. Conecta más actores para que las capacidades puedan coordinarse.';}}
 
   // Family choices use delegated selection
   els.challengeBody.addEventListener('click',e=>{const b=e.target.closest('.family-choice');if(!b)return;document.querySelectorAll(`.family-choice[data-g="${b.dataset.g}"]`).forEach(x=>x.classList.remove('selected'));b.classList.add('selected')});
