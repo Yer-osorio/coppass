@@ -66,7 +66,7 @@
     {id:'jorge',x:1840,y:720,avatar:'👨‍🏫',role:'Docente',name:'Jorge',lines:['La escuela puede aportar espacio y organización. Lo importante es saber qué capacidad existe y cómo coordinarla.']},
     {id:'ana',x:2190,y:1545,avatar:'🧑‍⚕️',role:'Salud',name:'Ana',lines:['El centro de salud es un recurso del territorio. Reconocerlo ayuda a pensar una respuesta que no empiece desde cero.']},
     {id:'lucia',x:2310,y:850,avatar:'👵',role:'Familia',name:'Lucía',lines:['En una emergencia debemos saber cómo comunicarnos, dónde encontrarnos y quién necesita más apoyo.']},
-    {id:'carlos',x:3220,y:1585,avatar:'🧑‍🤝‍🧑',role:'COPPASS',name:'Carlos',lines:['Cuando los grupos trabajan coordinadamente, la comunidad aprovecha mejor sus capacidades y evita acciones aisladas.']}
+    {id:'carlos',x:3090,y:1585,avatar:'🧑‍🤝‍🧑',role:'COPPASS',name:'Carlos',lines:['Cuando los grupos trabajan coordinadamente, la comunidad aprovecha mejor sus capacidades y evita acciones aisladas.']}
   ];
 
   const buildings = [
